@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наталья Викторовна Малафеева | Учитель географии</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        geo: {
+                            dark: '#0a111e',
+                            card: '#121c2e',
+                            ocean: '#0284c7',
+                            sea: '#0ea5e9',
+                            emerald: '#10b981',
+                            mint: '#34d399',
+                            gold: '#f59e0b',
+                            slate: '#1e293b'
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 12s ease-in-out infinite',
+                        'float-delayed': 'float 15s ease-in-out 3s infinite',
+                        'pulse-glow': 'pulseGlow 5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(4deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.3' },
+                            '50%': { opacity: '0.7' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a111e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+
+        .glass-card {
+            background: rgba(18, 28, 46, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            border-color: rgba(14, 165, 233, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(10, 17, 30, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #34d399 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .quiz-option {
+            transition: all 0.25s ease;
+        }
+        .quiz-option:hover {
+            border-color: #0ea5e9;
+            background: rgba(14, 165, 233, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-geo-dark text-slate-100 font-sans antialiased selection:bg-geo-sea selection:text-white relative overflow-x-hidden">
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -left-40 w-[35rem] h-[35rem] bg-geo-ocean/15 rounded-full blur-[150px] animate-float-slow"></div>
+        <div class="absolute top-1/3 -right-40 w-[38rem] h-[38rem] bg-geo-emerald/10 rounded-full blur-[170px] animate-float-delayed"></div>
+        <div class="absolute bottom-10 left-1/3 w-[30rem] h-[30rem] bg-geo-sea/10 rounded-full blur-[140px] animate-float-slow"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav py-4 px-6 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-geo-ocean to-geo-emerald flex items-center justify-center text-white shadow-lg shadow-geo-ocean/30 group-hover:scale-105 transition-transform">
+                    <i data-lucide="compass" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-base sm:text-lg text-white block leading-tight">Н. В. Малафеева</span>
+                    <span class="text-xs text-slate-400 font-light">Учитель географии</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-geo-sea transition-colors">О педагоге</a>
+                <a href="#methodology" class="hover:text-geo-sea transition-colors">Методика</a>
+                <a href="#quiz" class="hover:text-geo-sea transition-colors">Викторина</a>
+                <a href="#testimonials" class="hover:text-geo-sea transition-colors">Отзывы</a>
+                <a href="#contacts" class="hover:text-geo-sea transition-colors">Контакты</a>
+            </nav>
+
+            <a href="#contacts" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-geo-ocean to-geo-emerald text-white text-xs font-semibold uppercase tracking-wider hover:shadow-lg hover:shadow-geo-ocean/30 hover:scale-105 transition-all">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Связаться</span>
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 px-4 border-t border-white/10 mt-3 flex flex-col gap-3 text-sm font-medium text-slate-300">
+            <a href="#about" onclick="closeMobileMenu()" class="py-2 hover:text-geo-sea">О педагоге</a>
+            <a href="#methodology" onclick="closeMobileMenu()" class="py-2 hover:text-geo-sea">Методика</a>
+            <a href="#quiz" onclick="closeMobileMenu()" class="py-2 hover:text-geo-sea">Викторина</a>
+            <a href="#testimonials" onclick="closeMobileMenu()" class="py-2 hover:text-geo-sea">Отзывы</a>
+            <a href="#contacts" onclick="closeMobileMenu()" class="py-2 hover:text-geo-sea">Контакты</a>
+            <a href="#contacts" onclick="closeMobileMenu()" class="mt-2 py-2.5 rounded-xl bg-gradient-to-r from-geo-ocean to-geo-emerald text-white text-center font-semibold">Связаться</a>
+        </div>
+    </header>
+
+    <section class="relative z-10 pt-32 sm:pt-40 pb-20 px-6 max-w-7xl mx-auto min-h-screen flex items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border-geo-sea/30 text-xs sm:text-sm text-geo-sea font-medium">
+                    <span class="w-2 h-2 rounded-full bg-geo-emerald animate-ping"></span>
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                    <span>Открываем мир вместе со школьниками</span>
+                </div>
+
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+                    Наталья Викторовна <br/>
+                    <span class="hero-gradient-text">Малафеева</span>
+                </h1>
+
+                <p class="text-base sm:text-xl text-slate-300 font-light max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                    Учитель географии с <span class="text-white font-medium underline decoration-geo-emerald decoration-2 underline-offset-4">5+ годами успешной практики</span>. Превращаю сухие факты из учебников в захватывающие исследовательские путешествия, интерактивные виртуальные туры и высокие баллы на ОГЭ и ЕГЭ.
+                </p>
+
+                <!-- Stats Highlights -->
+                <div class="grid grid-cols-3 gap-4 pt-4 pb-2 border-y border-white/10 max-w-xl mx-auto lg:mx-0">
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-bold text-geo-sea">5+ лет</div>
+                        <div class="text-xs text-slate-400 font-light mt-1">Педагогический стаж</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-bold text-geo-emerald">92%</div>
+                        <div class="text-xs text-slate-400 font-light mt-1">Качество знаний учеников</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-bold text-geo-gold">100+</div>
+                        <div class="text-xs text-slate-400 font-light mt-1">Призеров олимпиад</div>
+                    </div>
+                </div>
+
+                <!-- Hero CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#contacts" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-geo-ocean via-geo-sea to-geo-emerald text-white font-semibold text-sm shadow-xl shadow-geo-ocean/25 hover:shadow-geo-ocean/40 hover:scale-105 transition-all flex items-center justify-center gap-3">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        <span>Записаться на консультацию</span>
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-card hover:bg-white/10 text-slate-200 font-semibold text-sm transition-all border border-white/10 flex items-center justify-center gap-2">
+                        <span>Подробнее о методике</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual Card / Profile Image Container -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <!-- Glass Frame Decorative Box -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-geo-ocean via-geo-emerald to-geo-gold rounded-3xl blur-xl opacity-30 animate-pulse-glow"></div>
+                    
+                    <div class="relative glass-card p-6 sm:p-8 rounded-3xl space-y-6">
+                        <!-- Simulated Teacher Avatar / Graphic -->
+                        <div class="relative h-72 sm:h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-geo-slate flex flex-col items-center justify-center border border-white/10 p-6 text-center group">
+                            <div class="w-28 h-28 rounded-full bg-gradient-to-tr from-geo-ocean to-geo-emerald p-1 mb-4 shadow-xl">
+                                <div class="w-full h-full rounded-full bg-geo-dark flex items-center justify-center text-geo-sea font-display text-3xl font-bold">
+                                    НМ
+                                </div>
+                            </div>
+                            <h3 class="font-display font-semibold text-xl text-white">Наталья Викторовна</h3>
+                            <p class="text-xs text-geo-sea font-medium mt-1">Учитель географии I категории</p>
+                            
+                            <div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-geo-emerald"></i>
+                                <span>Школьное образование</span>
+                            </div>
+
+                            <!-- Decorative Floating Badges -->
+                            <div class="absolute top-4 right-4 p-2.5 rounded-xl glass-card border-geo-emerald/30 text-geo-emerald shadow-lg animate-bounce">
+                                <i data-lucide="award" class="w-5 h-5"></i>
+                            </div>
+                            <div class="absolute bottom-4 left-4 p-2.5 rounded-xl glass-card border-geo-sea/30 text-geo-sea shadow-lg">
+                                <i data-lucide="map" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-2">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-slate-400">Кредо педагога:</span>
+                                <span class="text-geo-mint font-medium">Исследование</span>
+                            </div>
+                            <p class="text-xs text-slate-300 italic font-light leading-relaxed">
+                                «География — это не просто параграфы, это живой язык нашей планеты. Учу смотреть на мир через призму причинно-следственных связей.»
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="relative z-10 py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-xs uppercase tracking-widest text-geo-sea font-bold">Опыт и философия</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">
+                Современный взгляд на географию
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base font-light">
+                Педагогический путь Натальи Викторовны строится на совмещении проверенных образовательных стандартов и современных интерактивных технологий.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Feature Card 1 -->
+            <div class="glass-card glass-card-hover p-8 rounded-3xl space-y-5">
+                <div class="w-14 h-14 rounded-2xl bg-geo-ocean/10 border border-geo-ocean/30 flex items-center justify-center text-geo-sea">
+                    <i data-lucide="layers" class="w-7 h-7"></i>
+                </div>
+                <h3 class="font-display font-semibold text-xl text-white">Интерактивные ГИС-технологии</h3>
+                <p class="text-sm text-slate-300 font-light leading-relaxed">
+                    На уроках используются цифровые геоинформационные системы, интерактивные контурные карты и виртуальные 3D-модели рельефа для максимальной наглядности.
+                </p>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="glass-card glass-card-hover p-8 rounded-3xl space-y-5">
+                <div class="w-14 h-14 rounded-2xl bg-geo-emerald/10 border border-geo-emerald/30 flex items-center justify-center text-geo-emerald">
+                    <i data-lucide="compass" class="w-7 h-7"></i>
+                </div>
+                <h3 class="font-display font-semibold text-xl text-white">Практическая ориентация</h3>
+                <p class="text-sm text-slate-300 font-light leading-relaxed">
+                    Школьники учатся анализировать метеоданные, читать топографические схемы, понимать климатические циклы и причины экономических процессов в странах мира.
+                </p>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="glass-card glass-card-hover p-8 rounded-3xl space-y-5">
+                <div class="w-14 h-14 rounded-2xl bg-geo-gold/10 border border-geo-gold/30 flex items-center justify-center text-geo-gold">
+                    <i data-lucide="target" class="w-7 h-7"></i>
+                </div>
+                <h3 class="font-display font-semibold text-xl text-white">Индивидуальный подход</h3>
+                <p class="text-sm text-slate-300 font-light leading-relaxed">
+                    Учет особенностей каждого ученика: от преодоления страха перед картами у 5-классников до углубленной подготовки будущих абитуриентов геофака.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="methodology" class="relative z-10 py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-xs uppercase tracking-widest text-geo-emerald font-bold">Направления работы</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">
+                Как проходят уроки
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base font-light">
+                Комплексные программы обучения под любые задачи ученика.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Method 1 -->
+            <div class="glass-card p-8 rounded-3xl border border-white/10 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-geo-sea/10 text-geo-sea text-xs font-semibold">
+                        <span>Подготовка к экзаменам</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white">ОГЭ и ЕГЭ по географии</h3>
+                    <p class="text-sm text-slate-300 font-light leading-relaxed">
+                        Системный разбор структуры КИМ, решения задач на определение координат, профилей местности и социально-экономических показателей.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-geo-emerald"></i>
+                            <span>Авторские алгоритмы решения сложных задач</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-geo-emerald"></i>
+                            <span>Еженедельное пробное тестирование</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Method 2 -->
+            <div class="glass-card p-8 rounded-3xl border border-white/10 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-geo-emerald/10 text-geo-emerald text-xs font-semibold">
+                        <span>Исследования</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white">Проектная деятельность</h3>
+                    <p class="text-sm text-slate-300 font-light leading-relaxed">
+                        Руководство научными работами школьников, подготовка проектов по экологии, краеведению и метеорологии для школьных и региональных конференций.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-geo-emerald"></i>
+                            <span>Сбор и обработка реальных геоданных</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-geo-emerald"></i>
+                            <span>Публичная защита и презентации</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Method 3 -->
+            <div class="glass-card p-8 rounded-3xl border border-white/10 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-geo-gold/10 text-geo-gold text-xs font-semibold">
+                        <span>Интерактив</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white">Виртуальные полевые туры</h3>
+                    <p class="text-sm text-slate-300 font-light leading-relaxed">
+                        Увлекательные виртуальные путешествия по труднодоступным уголкам планеты — от ледников Камчатки до вулканов Исландии.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-geo-emerald"></i>
+                            <span>Спутниковые снимки высокого разрешения</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-geo-emerald"></i>
+                            <span>Игровые формы запоминания номенклатуры</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="quiz" class="relative z-10 py-24 px-6 max-w-4xl mx-auto">
+        <div class="glass-card p-8 sm:p-12 rounded-3xl border border-white/10 relative overflow-hidden">
+            <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-geo-sea/10 text-geo-sea text-xs font-semibold">
+                    <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                    <span>Интерактивный виджет</span>
+                </div>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
+                    Проверь свою гео-эрудицию!
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm font-light">
+                    Мини-тест из 3 вопросов, который показывает, как интересно разгадывать загадки нашей планеты.
+                </p>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-box" class="space-y-6 max-w-2xl mx-auto">
+                <div class="flex justify-between items-center text-xs text-slate-400 border-b border-white/10 pb-3">
+                    <span>Вопрос <span id="quiz-step" class="text-geo-sea font-bold">1</span> из 3</span>
+                    <span>Баллы: <span id="quiz-score" class="text-geo-emerald font-bold">0</span></span>
+                </div>
+
+                <div id="quiz-content" class="space-y-6">
+                    <h3 id="quiz-question" class="font-display text-lg sm:text-xl font-medium text-white">
+                        Загрузка вопроса...
+                    </h3>
+
+                    <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
+
+                <div id="quiz-feedback" class="hidden p-4 rounded-2xl bg-white/5 border border-white/10 text-center text-sm font-light">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="relative z-10 py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="text-xs uppercase tracking-widest text-geo-gold font-bold">Обратная связь</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">
+                Отзывы учеников и родителей
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base font-light">
+                Результаты и впечатления тех, кто уже учится с Натальей Викторовной.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Testimonial 1 -->
+            <div class="glass-card p-6 rounded-2xl space-y-4">
+                <div class="flex items-center gap-1 text-geo-gold">
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 font-light italic leading-relaxed">
+                    «Сдала ОГЭ по географии на высший балл! Наталья Викторовна объясняет сложные карты и климатические пояса так легко, что географию полюбили даже те, кто раньше считал её скучной.»
+                </p>
+                <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs">
+                    <span class="font-medium text-white">Екатерина, 9 класс</span>
+                    <span class="text-geo-sea">Подготовка к ОГЭ</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="glass-card p-6 rounded-2xl space-y-4">
+                <div class="flex items-center gap-1 text-geo-gold">
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 font-light italic leading-relaxed">
+                    «Выражаю огромную благодарность Наталье Викторовне за проектную работу моего сына! Они заняли 1-е место на городской конференции по экологии.»
+                </p>
+                <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs">
+                    <span class="font-medium text-white">Мария Сергеевна</span>
+                    <span class="text-geo-emerald">Мама ученика</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="glass-card p-6 rounded-2xl space-y-4">
+                <div class="flex items-center gap-1 text-geo-gold">
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-geo-gold"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 font-light italic leading-relaxed">
+                    «Уроки проходят на одном дыхании! Очень крутые виртуальные экскурсии и практические задания. Узнал о мире больше, чем за все прошлые годы.»
+                </p>
+                <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs">
+                    <span class="font-medium text-white">Артем, 11 класс</span>
+                    <span class="text-geo-gold">Подготовка к ЕГЭ</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacts" class="relative z-10 py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 space-y-8">
+                <div class="space-y-3">
+                    <span class="text-xs uppercase tracking-widest text-geo-sea font-bold">Связаться</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">
+                        Запишитесь на консультацию
+                    </h2>
+                    <p class="text-slate-400 text-sm font-light leading-relaxed">
+                        Оставьте заявку для обсуждения формата занятий, подготовки к ОГЭ/ЕГЭ или помощи с исследовательским проектом.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-4 rounded-2xl glass-card">
+                        <div class="w-10 h-10 rounded-xl bg-geo-sea/10 flex items-center justify-center text-geo-sea">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400">Электронная почта</div>
+                            <div class="text-sm font-medium text-white">malafeeva.geo@school.ru</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-2xl glass-card">
+                        <div class="w-10 h-10 rounded-xl bg-geo-emerald/10 flex items-center justify-center text-geo-emerald">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400">Местоположение</div>
+                            <div class="text-sm font-medium text-white">Школа №5, Кабинет географии</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 rounded-2xl glass-card">
+                        <div class="w-10 h-10 rounded-xl bg-geo-gold/10 flex items-center justify-center text-geo-gold">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400">Время для связи</div>
+                            <div class="text-sm font-medium text-white">Пн - Пт: 14:00 - 18:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-7">
+                <div class="glass-card p-8 sm:p-10 rounded-3xl border border-white/10 space-y-6">
+                    <h3 class="font-display text-xl font-bold text-white">Форма обратной связи</h3>
+                    
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1.5 font-medium">Ваше имя</label>
+                                <input type="text" required placeholder="Иван Иванов" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-geo-sea transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1.5 font-medium">Телефон / Telegram</label>
+                                <input type="text" required placeholder="+7 (999) 000-00-00" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-geo-sea transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5 font-medium">Цель обращения</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-geo-card border border-white/10 text-sm text-white focus:outline-none focus:border-geo-sea transition-colors">
+                                <option>Подготовка к ОГЭ (9 класс)</option>
+                                <option>Подготовка к ЕГЭ (11 класс)</option>
+                                <option>Помощь со школьной программой</option>
+                                <option>Проектная и исследовательская работа</option>
+                                <option>Другой вопрос</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5 font-medium">Сообщение</label>
+                            <textarea rows="4" placeholder="Расскажите немного о задачах ученика..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-geo-sea transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-geo-ocean via-geo-sea to-geo-emerald text-white font-semibold text-sm shadow-lg shadow-geo-ocean/30 hover:opacity-95 transition-opacity flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Отправить заявку</span>
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box -->
+                    <div id="form-success" class="hidden p-6 rounded-2xl bg-geo-emerald/10 border border-geo-emerald/30 text-center space-y-2">
+                        <div class="w-12 h-12 rounded-full bg-geo-emerald/20 text-geo-emerald mx-auto flex items-center justify-center">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-display font-semibold text-white">Заявка успешно отправлена!</h4>
+                        <p class="text-xs text-slate-300">Наталья Викторовна свяжется с вами в ближайшее рабочее время.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="relative z-10 py-12 px-6 border-t border-white/5 text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-geo-sea/20 flex items-center justify-center text-geo-sea">
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                </div>
+                <span>© Персональный сайт учителя географии Н. В. Малафеевой</span>
+            </div>
+            <div class="text-slate-600">
+                5+ лет педагогической деятельности в школе
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Quiz Data & Logic
+        const quizData = [
+            {
+                question: "Какой океан является самым глубоким на нашей планете?",
+                options: ["Атлантический", "Тихий", "Индийский", "Северный Ледовитый"],
+                correct: 1,
+                explanation: "Правильно! Тихий океан самый глубокий (Марианский жёлоб — около 11 022 м)."
+            },
+            {
+                question: "Какой материк является самым сухим на Земле?",
+                options: ["Африка", "Австралия", "Антарктида", "Южная Америка"],
+                correct: 2,
+                explanation: "Верно! Антарктида — самый сухой материк из-за крайне низкого количества осадков."
+            },
+            {
+                question: "Какое озеро является самым глубоким пресноводным озером в мире?",
+                options: ["Виктория", "Верхнее", "Байкал", "Танганьика"],
+                correct: 2,
+                explanation: "Отлично! Озеро Байкал имеет максимальную глубину 1642 метра."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const q = quizData[currentQuestion];
+            document.getElementById('quiz-step').textContent = currentQuestion + 1;
+            document.getElementById('quiz-question').textContent = q.question;
+            
+            const optionsBox = document.getElementById('quiz-options');
+            optionsBox.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option p-4 rounded-2xl glass-card text-left text-xs sm:text-sm text-slate-200 border border-white/10 hover:border-geo-sea';
+                btn.textContent = `${idx + 1}. ${opt}`;
+                btn.onclick = () => handleAnswer(idx);
+                optionsBox.appendChild(btn);
+            });
+
+            document.getElementById('quiz-feedback').classList.add('hidden');
+        }
+
+        function handleAnswer(selectedIndex) {
+            const q = quizData[currentQuestion];
+            const feedbackEl = document.getElementById('quiz-feedback');
+            feedbackEl.classList.remove('hidden');
+
+            if (selectedIndex === q.correct) {
+                score += 10;
+                document.getElementById('quiz-score').textContent = score;
+                feedbackEl.className = 'p-4 rounded-2xl bg-geo-emerald/10 border border-geo-emerald/30 text-geo-mint text-xs sm:text-sm font-light';
+                feedbackEl.textContent = q.explanation;
+            } else {
+                feedbackEl.className = 'p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs sm:text-sm font-light';
+                feedbackEl.textContent = `Увы, неверно. ${q.explanation}`;
+            }
+
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < quizData.length) {
+                    loadQuestion();
+                } else {
+                    showQuizResults();
+                }
+            }, 2500);
+        }
+
+        function showQuizResults() {
+            const quizBox = document.getElementById('quiz-box');
+            quizBox.innerHTML = `
+                <div class="text-center space-y-4 py-6">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-geo-ocean to-geo-emerald p-1 mx-auto flex items-center justify-center text-white text-2xl font-bold">
+                        🏆
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white">Тест пройден!</h3>
+                    <p class="text-sm text-slate-300">Вы набрали <span class="text-geo-emerald font-bold">${score}</span> из 30 баллов.</p>
+                    <button onclick="resetQuiz()" class="px-6 py-2.5 rounded-xl bg-geo-sea text-white text-xs font-semibold hover:opacity-90">
+                        Пройти снова
+                    </button>
+                </div>
+            `;
+        }
+
+        function resetQuiz() {
+            location.reload();
+        }
+
+        // Form Submit Simulation
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('form-success').classList.remove('hidden');
+        }
+
+        // Start Quiz on page load
+        loadQuestion();
+    </script>
+</body>
+</html>
